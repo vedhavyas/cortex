@@ -1,0 +1,7 @@
+version: "3"
+services:
+  db:
+    image: "postgres:alpine"
+    container_name: "cortex-postgres"
+    ports:
+    - "54320:5432"
