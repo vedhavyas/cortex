@@ -6,11 +6,11 @@ import "time"
 type UserType string
 
 const (
-	// Regular users can use the full API in the spec.
-	Regular UserType = "user"
+	// RegularUser users can use the full API in the spec.
+	RegularUser UserType = "user"
 
-	// Guest users have limited permissions and may not be supported by all home servers.
-	Guest UserType = "guest"
+	// GuestUser users have limited permissions and may not be supported by all home servers.
+	GuestUser UserType = "guest"
 )
 
 // User represents single registered user.
@@ -22,4 +22,9 @@ type User struct {
 	Active    bool
 	CreatedAt time.Time
 	UpdatedAt time.Time
+}
+
+// NewUser sets the username, email and type and returns a new user
+func NewUser(username, email string, userType UserType) User {
+	return User{Username: username, Email: email, Type: userType}
 }
